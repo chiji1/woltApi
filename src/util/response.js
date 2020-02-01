@@ -4,14 +4,15 @@ const {STATUS_MSG} = require('../constants');
 const success = (res,
                         status = STATUS_MSG.SUCCESS.NO_RESULT_FOUND.statusCode,
                         entity,
-                        msg = STATUS_MSG.SUCCESS.DEFAULT.customMessage) => res
-    .status(status || 200)
-    .json({
-        success: true,
-        payload: entity || [],
-        message: msg || "Operation Successful(s)",
-    });
-
+                        msg = STATUS_MSG.SUCCESS.DEFAULT.customMessage) => {
+    res
+        .status(status || 200)
+        .json({
+            success: true,
+            payload: entity || [],
+            message: msg || "Operation Successful(s)",
+        });
+};
 const fail = (res,
                      status = STATUS_MSG.ERROR.NO_RESULT_FOUND.statusCode,
                      msg = STATUS_MSG.ERROR.NO_RESULT_FOUND.customMessage) => res
